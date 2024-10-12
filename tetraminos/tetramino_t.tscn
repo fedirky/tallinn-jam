@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7wgke7e3dmmv"]
 
 [ext_resource type="Script" path="res://tetraminos/tetramino.gd" id="1_oc3jf"]
-[ext_resource type="Texture2D" uid="uid://bcay3l5de0cub" path="res://icon.svg" id="1_pr40u"]
+[ext_resource type="Texture2D" uid="uid://c81kxw72j1kjv" path="res://assets/Figures/Tetromino_block1_2.png" id="2_0lgcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aainv"]
 size = Vector2(192, 64)
@@ -28,27 +28,28 @@ shape = SubResource("RectangleShape2D_aainv")
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_k0jit")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TetrominoBlock12" type="Sprite2D" parent="."]
 position = Vector2(-64, -32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pr40u")
+scale = Vector2(2, 2)
+texture = ExtResource("2_0lgcd")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="TetrominoBlock13" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pr40u")
+scale = Vector2(2, 2)
+texture = ExtResource("2_0lgcd")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(64, -32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pr40u")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="TetrominoBlock15" type="Sprite2D" parent="."]
 position = Vector2(0, 32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pr40u")
+scale = Vector2(2, 2)
+texture = ExtResource("2_0lgcd")
+
+[node name="TetrominoBlock14" type="Sprite2D" parent="."]
+position = Vector2(64, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0lgcd")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
