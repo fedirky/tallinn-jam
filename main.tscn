@@ -1,6 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfckge2xkjnsy"]
+[gd_scene load_steps=6 format=3 uid="uid://cfckge2xkjnsy"]
 
 [ext_resource type="Script" path="res://block_spawner.gd" id="1_jt77i"]
+[ext_resource type="Texture2D" uid="uid://bcay3l5de0cub" path="res://icon.svg" id="2_3p0d8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnryc"]
+size = Vector2(320, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llpb4"]
+size = Vector2(12810, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwwms"]
+size = Vector2(321, 8)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_jt77i")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 383)
+shape = SubResource("RectangleShape2D_hnryc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(7.62939e-06, 384)
+scale = Vector2(2.5, 1)
+texture = ExtResource("2_3p0d8")
+
+[node name="Camera2D" type="Camera2D" parent="Floor"]
+position = Vector2(0, 64)
+
+[node name="Marker2D" type="Marker2D" parent="Floor/Camera2D"]
+position = Vector2(0, -424)
+
+[node name="BlockFailCheker" type="Area2D" parent="Floor/Camera2D" groups=["tetramino_static"]]
+position = Vector2(0, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Camera2D/BlockFailCheker"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_llpb4")
+
+[node name="BlockSolidCheker" type="Area2D" parent="Floor/Camera2D"]
+position = Vector2(0, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Camera2D/BlockSolidCheker"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qwwms")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor/Camera2D/BlockSolidCheker"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 1)
+scale = Vector2(2.5, 0.0625)
+texture = ExtResource("2_3p0d8")
+
+[node name="Blocks" type="Node2D" parent="Floor"]
+position = Vector2(0, 32)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HPLabel" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_right = 87.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "HP: 3"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -248.0
+offset_right = -8.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Score: "
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="Floor/Camera2D/BlockFailCheker" to="." method="_on_block_fail_cheker_body_entered"]
+[connection signal="body_exited" from="Floor/Camera2D/BlockSolidCheker" to="." method="_on_block_solid_cheker_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

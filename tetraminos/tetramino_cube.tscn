@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckuqq2l8ose8"]
+
+[ext_resource type="Script" path="res://tetraminos/tetramino.gd" id="1_csuey"]
+[ext_resource type="Texture2D" uid="uid://bcay3l5de0cub" path="res://icon.svg" id="1_fkosw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23y60"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krsxc"]
+size = Vector2(130, 130)
+
+[node name="TetraminoCube" type="RigidBody2D"]
+mass = 10.0
+gravity_scale = 0.1
+script = ExtResource("1_csuey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_23y60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-32, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fkosw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fkosw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fkosw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fkosw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_krsxc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -15,6 +15,23 @@ run/main_scene="res://block.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[global_group]
+
+tetramino_dynamic=""
+tetramino_laying=""
+tetramino_static=""
+
+[physics]
+
+2d/run_on_separate_thread=true
+2d/physics_engine="Rapier2D"
+common/physics_interpolation=true
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
