@@ -1,71 +1,117 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbng883vwq8cs"]
+[gd_scene load_steps=6 format=3 uid="uid://bbng883vwq8cs"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_gwwsn"]
 [ext_resource type="Texture2D" uid="uid://dkbsd06pkgroa" path="res://assets/Figures/Tetromino_I1_1.png" id="2_7bwbj"]
-[ext_resource type="Texture2D" uid="uid://dlncsgi0mkmud" path="res://assets/Buildings/1.png" id="2_8tore"]
-[ext_resource type="Texture2D" uid="uid://bbarmxou10o3x" path="res://assets/Buildings/2.png" id="3_uo0sr"]
-[ext_resource type="Texture2D" uid="uid://lamaky021yo0" path="res://assets/Buildings/3.png" id="4_7w0p1"]
-[ext_resource type="Texture2D" uid="uid://cyixwcmjf5583" path="res://assets/Buildings/5.png" id="5_ykrkf"]
+[ext_resource type="FontFile" uid="uid://c48ssjfjlulgd" path="res://assets/fonts/Boxy-Bold.ttf" id="3_wavj4"]
+[ext_resource type="AudioStream" uid="uid://caf5sgcm6sm1p" path="res://assets/audio/minigame_monkey.ogg" id="5_h1fpf"]
 [ext_resource type="Texture2D" uid="uid://dd6j0u17qbuax" path="res://assets/Figures/Pattern02.png" id="6_w53v1"]
 
-[node name="menu" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="menu" type="Node2D"]
 script = ExtResource("1_gwwsn")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -180.0
-offset_right = -60.0
-offset_bottom = 67.0
-scale = Vector2(3, 3)
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_h1fpf")
+autoplay = true
+parameters/looping = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_7bwbj")
-
-[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_7bwbj")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 64)
-
-[node name="Pattern02" type="Sprite2D" parent="Camera2D"]
+[node name="Background" type="Sprite2D" parent="."]
 z_index = -5
 texture_repeat = 2
+position = Vector2(0, 64)
 texture = ExtResource("6_w53v1")
 region_enabled = true
 region_rect = Rect2(0, 0, 3000, 1500)
 
-[node name="background" type="Node2D" parent="Camera2D"]
-z_index = -5
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, 64)
 
-[node name="White_Background" type="Sprite2D" parent="Camera2D/background"]
-visible = false
-position = Vector2(1.77777, 1)
-scale = Vector2(2.22839, 2.22839)
-texture = ExtResource("2_8tore")
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Buildings_1" type="Sprite2D" parent="Camera2D/background"]
-visible = false
-position = Vector2(1.77777, 1)
-scale = Vector2(2.22839, 2.22839)
-texture = ExtResource("3_uo0sr")
+[node name="Play" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -140.0
+offset_right = 240.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_7bwbj")
+stretch_mode = 5
 
-[node name="Buildings_2" type="Sprite2D" parent="Camera2D/background"]
-visible = false
-scale = Vector2(2.22839, 2.22839)
-texture = ExtResource("4_7w0p1")
+[node name="Label" type="Label" parent="UI/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_wavj4")
+theme_override_font_sizes/font_size = 48
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Buildings_3" type="Sprite2D" parent="Camera2D/background"]
-visible = false
-position = Vector2(1.77777, 1)
-scale = Vector2(2.22839, 2.22839)
-texture = ExtResource("5_ykrkf")
+[node name="Quit" type="TextureButton" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_7bwbj")
+stretch_mode = 5
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Label2" type="Label" parent="UI/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_wavj4")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1064.0
+offset_top = -64.0
+offset_right = -19.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_wavj4")
+theme_override_font_sizes/font_size = 24
+text = "CREDITS:
+https://opengameart.org/content/boxy-bold-truetype-font"
+
+[connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Quit" to="." method="_on_quit_pressed"]
