@@ -17,29 +17,31 @@ script = ExtResource("1_csuey")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_23y60")
 
-[node name="TetrominoBlock12" type="Sprite2D" parent="."]
-position = Vector2(-32.5, -32.5)
-scale = Vector2(2.03125, 2.03125)
-texture = ExtResource("2_knkbh")
-
-[node name="TetrominoBlock15" type="Sprite2D" parent="."]
-position = Vector2(32.4961, -32.4961)
-scale = Vector2(2.03149, 2.03149)
-texture = ExtResource("2_knkbh")
-
-[node name="TetrominoBlock14" type="Sprite2D" parent="."]
-position = Vector2(-32.5078, 32.4922)
-scale = Vector2(2.03174, 2.03174)
-texture = ExtResource("2_knkbh")
-
-[node name="TetrominoBlock13" type="Sprite2D" parent="."]
-position = Vector2(32.5039, 32.4961)
-scale = Vector2(2.03198, 2.03198)
-texture = ExtResource("2_knkbh")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_krsxc")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="TetrominoBlock12" type="Sprite2D" parent="Sprites"]
+position = Vector2(-32.5, -32.5)
+scale = Vector2(2.03125, 2.03125)
+texture = ExtResource("2_knkbh")
+
+[node name="TetrominoBlock15" type="Sprite2D" parent="Sprites"]
+position = Vector2(32.4961, -32.4961)
+scale = Vector2(2.03149, 2.03149)
+texture = ExtResource("2_knkbh")
+
+[node name="TetrominoBlock14" type="Sprite2D" parent="Sprites"]
+position = Vector2(-32.5078, 32.4922)
+scale = Vector2(2.03174, 2.03174)
+texture = ExtResource("2_knkbh")
+
+[node name="TetrominoBlock13" type="Sprite2D" parent="Sprites"]
+position = Vector2(32.5039, 32.4961)
+scale = Vector2(2.03198, 2.03198)
+texture = ExtResource("2_knkbh")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

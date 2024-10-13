@@ -36,27 +36,24 @@ texture = ExtResource("2_3p0d8")
 [node name="Camera2D" type="Camera2D" parent="Floor"]
 position = Vector2(0, 64)
 
-[node name="background" type="Node" parent="Floor/Camera2D"]
+[node name="background" type="Node2D" parent="Floor/Camera2D"]
+z_index = -5
 
 [node name="White_Background" type="Sprite2D" parent="Floor/Camera2D/background"]
-visible = false
 position = Vector2(1.77777, 1)
 scale = Vector2(2.22839, 2.22839)
 texture = ExtResource("2_5rr5f")
 
 [node name="Buildings_1" type="Sprite2D" parent="Floor/Camera2D/background"]
-visible = false
 position = Vector2(1.77777, 1)
 scale = Vector2(2.22839, 2.22839)
 texture = ExtResource("3_xmwoq")
 
 [node name="Buildings_2" type="Sprite2D" parent="Floor/Camera2D/background"]
-visible = false
 scale = Vector2(2.22839, 2.22839)
 texture = ExtResource("4_iilws")
 
 [node name="Buildings_3" type="Sprite2D" parent="Floor/Camera2D/background"]
-visible = false
 position = Vector2(1.77777, 1)
 scale = Vector2(2.22839, 2.22839)
 texture = ExtResource("5_8mbkc")
@@ -65,7 +62,7 @@ texture = ExtResource("5_8mbkc")
 position = Vector2(0, -424)
 
 [node name="BlockFailCheker" type="Area2D" parent="Floor/Camera2D" groups=["tetramino_static"]]
-position = Vector2(0, 568)
+position = Vector2(0, 713)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Camera2D/BlockFailCheker"]
 position = Vector2(0, 4)

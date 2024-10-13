@@ -17,13 +17,15 @@ script = ExtResource("1_5n6d2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iesyf")
 
-[node name="TetrominoI11" type="Sprite2D" parent="."]
-scale = Vector2(2.15, 2.21875)
-texture = ExtResource("3_lit5n")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_fc5g7")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="TetrominoI11" type="Sprite2D" parent="Sprites"]
+scale = Vector2(2.15, 2.21875)
+texture = ExtResource("3_lit5n")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
