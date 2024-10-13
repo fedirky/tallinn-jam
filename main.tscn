@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfckge2xkjnsy"]
+[gd_scene load_steps=11 format=3 uid="uid://cfckge2xkjnsy"]
 
 [ext_resource type="Script" path="res://block_spawner.gd" id="1_jt77i"]
 [ext_resource type="Texture2D" uid="uid://bcay3l5de0cub" path="res://icon.svg" id="2_3p0d8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbarmxou10o3x" path="res://assets/Buildings/2.png" id="3_xmwoq"]
 [ext_resource type="Texture2D" uid="uid://lamaky021yo0" path="res://assets/Buildings/3.png" id="4_iilws"]
 [ext_resource type="Texture2D" uid="uid://cyixwcmjf5583" path="res://assets/Buildings/5.png" id="5_8mbkc"]
+[ext_resource type="Texture2D" uid="uid://dd6j0u17qbuax" path="res://assets/Figures/Pattern02.png" id="7_kv4rn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnryc"]
 size = Vector2(320, 130)
@@ -81,6 +82,13 @@ z_index = 2
 position = Vector2(0, 1)
 scale = Vector2(2.5, 0.0625)
 texture = ExtResource("2_3p0d8")
+
+[node name="Pattern02" type="Sprite2D" parent="Floor/Camera2D"]
+texture_repeat = 2
+position = Vector2(-576, -296)
+texture = ExtResource("7_kv4rn")
+region_enabled = true
+region_rect = Rect2(0, 0, 3000, 1500)
 
 [node name="Blocks" type="Node2D" parent="Floor"]
 position = Vector2(0, 32)
