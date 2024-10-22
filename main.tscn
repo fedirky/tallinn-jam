@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d07j1vw6t8cw8" path="res://assets/Figures/Tetromino_O1_1.png" id="2_kuwsn"]
 [ext_resource type="AudioStream" uid="uid://caf5sgcm6sm1p" path="res://assets/audio/minigame_monkey.ogg" id="2_vfoyd"]
 [ext_resource type="FontFile" uid="uid://c48ssjfjlulgd" path="res://assets/fonts/Boxy-Bold.ttf" id="4_ccabv"]
-[ext_resource type="Texture2D" uid="uid://dd6j0u17qbuax" path="res://assets/Figures/Pattern02.png" id="7_kv4rn"]
+[ext_resource type="Texture2D" uid="uid://dy5xtdh7f0kt" path="res://assets/Figures/Pattern02.png" id="7_kv4rn"]
 [ext_resource type="Texture2D" uid="uid://dkbsd06pkgroa" path="res://assets/Figures/Tetromino_I1_1.png" id="7_yrwki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnryc"]
